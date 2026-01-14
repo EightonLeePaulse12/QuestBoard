@@ -1,10 +1,30 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Shared.Library.DependencyInjection
 {
-    internal class AddSwagger
+    public static class AddSwagger
     {
+        public static IServiceCollection AddswaggerUI(this IServiceCollection services, IConfiguration config, string Title, string Description)
+        {
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc(
+                    "v1",
+                    new OpenApiInfo
+                    {
+                        Title = Title,
+                        Version = "v1",
+                        Description = Description,
+                    }
+                );
+            });
+
+            return services;
+        }
     }
 }

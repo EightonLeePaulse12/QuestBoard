@@ -1,3 +1,11 @@
 <Solution>
-  <Project Path="QuestBoard.Shared/QuestBoard.Shared.csproj" />
+  <Folder Name="/Solution Items/">
+    <File Path="docker-compose.yml" />
+  </Folder>
+  <Project Path="EmailService/EmailService.csproj" />
+  <Project Path="PlayerService/PlayerService.csproj" />
+  <Project Path="QuestBoard.Shared/Shared.Library.csproj" />
+  <Project Path="QuestService/QuestService.csproj" />
+  <Project Path="Shared.Contracts/Shared.Contracts.csproj" />
+  <Project Path="Shared.Infrastructure/Shared.Infrastructure.csproj" />
 </Solution>

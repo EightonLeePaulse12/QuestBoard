@@ -1,10 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Shared.Library.DependencyInjection
 {
-    internal class CommonInfrastructure
+    public static class CommonInfrastructure
     {
+        public static IServiceCollection AddCommonInfrastructure(this IServiceCollection services, IConfiguration config)
+        {
+            services.AddControllers();
+
+            return services;
+        }
     }
 }
+
