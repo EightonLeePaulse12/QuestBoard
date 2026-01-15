@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Shared.Library.Entities
+﻿namespace Shared.Library.Entities
 {
     public class Player
     {

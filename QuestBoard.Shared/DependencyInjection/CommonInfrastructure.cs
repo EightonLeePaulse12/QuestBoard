@@ -13,4 +13,3 @@ namespace Shared.Library.DependencyInjection
         }
     }
 }
-

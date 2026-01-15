@@ -1,10 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using QuestService.Infrastructure;
+using QuestService.Repository;
 using Shared.Infrastructure.Messaging;
 using Shared.Library.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
-
 
 builder.Services.AddCommonInfrastructure(builder.Configuration);
 
@@ -15,7 +15,9 @@ builder.Services.AddDbContext<QuestDbContext>(conf =>
 
 builder.Services.AddswaggerUI(builder.Configuration, "Quest Service", "Microservice for managing quest service");
 
-builder.Services.AddMassTransitConf(builder.Configuration);
+builder.Services.AddScoped<IQuestRepo, QuestRepo>();
+
+builder.Services.AddMassTransitConf(builder.Configuration, "QuestService");
 
 builder.Services.AddOpenApi();
 
@@ -30,6 +32,9 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.MapControllers();
 

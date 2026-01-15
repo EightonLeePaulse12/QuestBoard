@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using PlayerService.Consumers;
 using PlayerService.Infrastructure;
-using Shared.Contracts.DomainEvents;
+using PlayerService.Repository;
 using Shared.Infrastructure.Messaging;
 using Shared.Library.DependencyInjection;
 
@@ -15,12 +16,16 @@ builder.Services.AddDbContext<PlayerDbContext>(conf =>
     conf.UseSqlite(builder.Configuration.GetConnectionString("Default"));
 });
 
+builder.Services.AddScoped<IPlayerRepo, PlayerRepo>();
+
 builder.Services.AddOpenApi();
 
 builder.Services.AddswaggerUI(builder.Configuration, "Player Service", "Microservice for managing player service");
 
-builder.Services.AddMassTransitConf(builder.Configuration);
-
+builder.Services.AddMassTransitConf(builder.Configuration, "player-service", x =>
+{
+    x.AddConsumer<QuestCompletedConsumer>();
+});
 
 var app = builder.Build();
 
@@ -31,6 +36,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseAuthorization();
 

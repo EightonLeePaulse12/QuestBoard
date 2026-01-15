@@ -1,5 +1,4 @@
-﻿using MassTransit.Transports;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Shared.Library.Entities;
 
 namespace PlayerService.Infrastructure

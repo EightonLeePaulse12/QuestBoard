@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Shared.Contracts.DomainEvents
+﻿namespace Shared.Contracts.DomainEvents
 {
-    public record QuestCompleted
-    {
-        Guid QuestId;
-        Guid PlayerId;
-        int XpReward;
-    }
+    public record QuestCompleted(Guid Id, Guid PlayerId, int RewardXp);
 }

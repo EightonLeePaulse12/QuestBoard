@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Shared.Contracts.DomainEvents
+﻿namespace Shared.Contracts.DomainEvents
 {
     public class OutboxMessage
     {
-        Guid Id;
-        string Type;
-        string Payload;
-        DateTime CreatedAt;
-        bool Processed;
+        public Guid Id;
+        public string Type;
+        public string Payload;
+        public DateTime CreatedAt;
+        public bool Processed;
     }
 }
