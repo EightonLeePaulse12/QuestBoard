@@ -20,6 +20,7 @@ builder.Services.AddMassTransitConf(builder.Configuration, "email-service", x =>
 
 var app = builder.Build();
 
+
 app.MapPost("/email-notifications", async ([FromBody] EmailStructure email, IEmailServices service) =>
 {
     await service.SendEmailAsync(email);

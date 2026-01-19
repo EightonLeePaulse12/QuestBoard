@@ -6,6 +6,7 @@
   <Project Path="PlayerService/PlayerService.csproj" />
   <Project Path="QuestBoard.Shared/Shared.Library.csproj" />
   <Project Path="QuestService/QuestService.csproj" />
+  <Project Path="SagaService/SagaService.csproj" Id="2e6062aa-60e0-4087-b711-0d9416991454" />
   <Project Path="Shared.Contracts/Shared.Contracts.csproj" />
   <Project Path="Shared.Infrastructure/Shared.Infrastructure.csproj" />
 </Solution>

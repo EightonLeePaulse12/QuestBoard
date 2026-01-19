@@ -11,18 +11,7 @@ namespace PlayerService.Consumers
         {
             var message = context.Message;
 
-            Console.WriteLine(message);
-
-            var player = await _context.Players.FirstOrDefaultAsync(p => p.Id == message.PlayerId);
-
-            // Testing to see if there's data at all:
-            //Console.WriteLine($"{player.Name}");
-
-            Console.WriteLine("Consumed ID:" + message.PlayerId);
-            Console.WriteLine("Actual ID:" + player.Id);
-
-            if (player is null) throw new Exception("Something went wrong");
-
+            var player = await _context.Players.FirstOrDefaultAsync(p => p.Id == message.PlayerId) ?? throw new Exception("Something went wrong");
             var previousLevel = player.Level;
 
             player.Xp += message.RewardXp;
