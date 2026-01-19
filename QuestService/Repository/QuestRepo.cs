@@ -29,12 +29,12 @@ namespace QuestService.Repository
 
             context.Quests.Add(quest);
             await context.SaveChangesAsync();
-            await publishEndpoint.Publish(new QuestCreated
-            {
-                QuestId = quest.Id,
-                PlayerId = quest.PlayerId,
-                Title = quest.Title
-            });
+
+            await publishEndpoint.Publish(new QuestCreated(
+                quest.Id,
+                quest.PlayerId,
+                quest.Title
+            ));
 
             return new ServiceResponse(true, "Quest Created Successfully");
         }
@@ -61,6 +61,8 @@ namespace QuestService.Repository
                 quest.PlayerId,
                 quest.RewardXp
             ));
+
+            await publishEndpoint.Publish(new XpAwarded(quest.PlayerId, quest.RewardXp));
 
             return new ServiceResponse(true, "Quest marked as completed successfully");
         }

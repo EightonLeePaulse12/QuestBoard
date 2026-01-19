@@ -10,7 +10,7 @@ builder.Services.AddCommonInfrastructure(builder.Configuration);
 
 builder.Services.AddDbContext<QuestDbContext>(conf =>
 {
-    conf.UseSqlite(builder.Configuration.GetConnectionString("Default"));
+    conf.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
 
 builder.Services.AddswaggerUI(builder.Configuration, "Quest Service", "Microservice for managing quest service");

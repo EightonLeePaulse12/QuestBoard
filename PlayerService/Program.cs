@@ -13,7 +13,7 @@ builder.Services.AddCommonInfrastructure(builder.Configuration);
 
 builder.Services.AddDbContext<PlayerDbContext>(conf =>
 {
-    conf.UseSqlite(builder.Configuration.GetConnectionString("Default"));
+    conf.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
 
 builder.Services.AddScoped<IPlayerRepo, PlayerRepo>();

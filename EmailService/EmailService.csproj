@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Consumers\" />
+    <PackageReference Include="MailKit" Version="4.14.1" />
   </ItemGroup>
 
   <ItemGroup>
