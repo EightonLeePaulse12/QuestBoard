@@ -16,7 +16,7 @@ namespace PlayerService.Consumers
 
             player.Xp += message.RewardXp;
 
-            await _publishEndpoint.Publish(new XpAwarded(player.Id, message.RewardXp));
+            await _publishEndpoint.Publish(new XpAwarded(player.Id, message.RewardXp, message.QuestId));
 
             player.Level = player.Xp / 1000;
 

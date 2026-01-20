@@ -1,6 +1,6 @@
 ﻿using MassTransit;
 
-namespace SagaService.Sagas
+namespace SagaService.Sagas.QuestCompletion
 {
     public class QuestCompletionState : SagaStateMachineInstance
     {
@@ -16,5 +16,7 @@ namespace SagaService.Sagas
 
         // Required for state machines
         public string CurrentState { get; set; } = default!;
+
+        public byte[] RowVersion { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Shared.Contracts.Sagas
+namespace Shared.Contracts.Commands
 {
     public record AwardXp(Guid PlayerId, int Amount);
 }

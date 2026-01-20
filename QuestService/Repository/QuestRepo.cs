@@ -62,7 +62,7 @@ namespace QuestService.Repository
                 quest.RewardXp
             ));
 
-            await publishEndpoint.Publish(new XpAwarded(quest.PlayerId, quest.RewardXp));
+            await publishEndpoint.Publish(new XpAwarded(quest.PlayerId, quest.RewardXp, quest.Id));
 
             return new ServiceResponse(true, "Quest marked as completed successfully");
         }
